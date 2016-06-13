@@ -16,6 +16,7 @@
     </dependency>
   </dependencies>
   <build>
+<plugins>
 <plugin>  
   <groupId>org.eclipse.jetty</groupId>  
   <artifactId>jetty-maven-plugin</artifactId>  
@@ -24,6 +25,7 @@
     <scanIntervalSeconds>10</scanIntervalSeconds>  
   </configuration>  
 </plugin> 
+</plugins>
     <finalName>newcomer</finalName>
   </build>
 </project>
