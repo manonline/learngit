@@ -1,4 +1,4 @@
-CREATE TABLE order(
+CREATE TABLE _order(
     id bigint NOT NULL,
     ord_num character varying(255),
     client character varying(20),
@@ -22,5 +22,5 @@ CREATE TABLE order(
         MATCH SIMPLE
         ON UPDATE NO ACTION 
         ON DELETE NO ACTION
-)
+);
 
