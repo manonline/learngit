@@ -1,0 +1,21 @@
+## the following work is to be done 
+# create a script to loop through and run *.sql files under ../../database/ddl folder, 
+# with which a database will be created from scratch.
+# Basically, we should use shell, perl or python to run the following psql commands -
+# plsql -U postgres -f createdabase.sql
+# plsql -U postgres -d databasename -f *.sql
+##
+
+
+## maven project initiation 
+# run the following command from project folder to generate a new Maven project
+mvn archetype:generate -DgroupId=com.otms -DartifactId=newcomer -DarchetypeArtifactId=maven-archetype-webapp
+
+# add the following to pom.xml to include maven-jetty plugin
+<plugins>
+  <plugin>  
+    <groupId>org.eclipse.jetty</groupId>  
+    <artifactId>jetty-maven-plugin</artifactId>  
+    <version>9.2.2.v20140723</version>  
+  </plugin>
+</plugins> 
