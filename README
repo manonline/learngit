@@ -19,3 +19,11 @@ mvn archetype:generate -DgroupId=com.otms -DartifactId=newcomer -DarchetypeArtif
     <version>9.2.2.v20140723</version>  
   </plugin>
 </plugins> 
+
+# add the following to pom.xml to include project dependencies on Spring, Hibernate and a few other things.
+
+# add the following to main/src/resources
+# spring.xml 		- to config spring
+# config.properties 	- to include properties needed for c3p0 and hibernate
+# log.properties 	- to include properties needed for log4j
+# spring-hibernate.xml 	- to config hibernate
