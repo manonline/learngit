@@ -27,3 +27,8 @@ mvn archetype:generate -DgroupId=com.otms -DartifactId=newcomer -DarchetypeArtif
 # config.properties 	- to include properties needed for c3p0 and hibernate
 # log.properties 	- to include properties needed for log4j
 # spring-hibernate.xml 	- to config hibernate
+
+# take the following steps
+# create test folder
+# create junit test cases
+# 

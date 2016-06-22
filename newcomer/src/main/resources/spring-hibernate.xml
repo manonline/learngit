@@ -13,10 +13,10 @@
 	<!-- 配置数据源 c3p0 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
-		<property name="driverClass" value="${jdbc.driver}" />
-		<property name="jdbcUrl" value="${jdbc.url}" />
-		<property name="user" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
+		<property name="driverClass" value="org.postgresql.Driver" />
+		<property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/learngit" />
+		<property name="user" value="postgres" />
+		<property name="password" value="" />
 		<!-- 请求超时时间 -->
 		<property name="checkoutTimeout" value="30000" />
 		<!-- 每60秒检查所有连接池中的空闲连接。默认值: 0，不检查 -->
@@ -52,36 +52,12 @@
 			</props>
 		</property>
 		<!-- 扫描hibernate注解配置的entity -->
-		<property name="packagesToScan" value="org.andy.work.entity" />
+		<property name="packagesToScan">
+			<list>
+				<value>com.otms.newcomer.entity</value>
+			</list>
+		</property>
 	</bean>
 
-	<!-- 配置事务管理器 -->
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<!-- 配置事务增强处理Bean，指定事务管理器 -->
-	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
-		<!-- 配置详细事务处理语义 -->
-		<tx:attributes>
-			<tx:method name="insert*" propagation="REQUIRED" />
-			<tx:method name="update*" propagation="REQUIRED" />
-			<tx:method name="delete*" propagation="REQUIRED" />
-			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
-			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
-			<tx:method name="select*" propagation="SUPPORTS" read-only="true" />
-			<tx:method name="load*" propagation="SUPPORTS" read-only="true" />
-			<!-- 其他采用默认事务方式 -->
-			<tx:method name="*" />
-		</tx:attributes>
-	</tx:advice>
-	<!-- Spring aop事务管理 -->
-	<aop:config>
-		<!-- 配置切入点 -->
-		<aop:pointcut id="transactionPointcut"
-			expression="execution(* org.andy.work.service..*Impl.*(..))" />
-		<!-- 指定在txAdvice切入点应用txAdvice事务增强处理 -->
-		<aop:advisor pointcut-ref="transactionPointcut"
-			advice-ref="transactionAdvice" />
-	</aop:config>
+
 </beans>
