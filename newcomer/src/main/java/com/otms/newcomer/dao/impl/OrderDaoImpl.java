@@ -19,12 +19,12 @@ public class OrderDaoImpl implements OrderDao {
     private Session getCurrentSession() {
         return this.sessionFactory.getCurrentSession();
     }
-
-    public Order load(Integer id) {
+    
+    public Order load(Long id) {
         return (Order)this.getCurrentSession().load(Order.class, id);
     }
-
-    public Order get(Integer id) {
+    
+    public Order get(Long id) {
         return (Order)this.getCurrentSession().get(Order.class, id);
     }
     
@@ -33,26 +33,25 @@ public class OrderDaoImpl implements OrderDao {
         List<Order> orders = this.getCurrentSession().createQuery("from Order").list();
         return orders;
     }
-
+    
     public void persist(Order entity) {
         this.getCurrentSession().persist(entity);
     }
-
-    public Integer save(Order entity) {
-        return (Integer)this.getCurrentSession().save(entity);
+    
+    public Long save(Order entity) {
+        return (Long)this.getCurrentSession().save(entity);
     }
-
+    
     public void saveOrUpdate(Order entity) {
         this.getCurrentSession().saveOrUpdate(entity);
     }
-
-    public void delete(Integer id) {
+    
+    public void delete(Long id) {
         Order entity = this.load(id);
         this.getCurrentSession().delete(entity);
     }
-
+    
     public void flush() {
         this.getCurrentSession().flush();
     }
-
 }

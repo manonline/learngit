@@ -33,7 +33,7 @@ public class Order {
     @Column(name = "id", 
             unique = true,
             nullable = false)
-    private long id;
+    private Long id;
     
     @Column(name = "ord_num",
             unique = true)
@@ -58,15 +58,15 @@ public class Order {
     private Date act_delivery_date;
     
     @Column(name = "shipfrom_loc")
-    private long shipfrom_loc;
+    private Long shipfrom_loc;
     
     @Column(name = "shipto_loc")
-    private long shipto_loc;
+    private Long shipto_loc;
     
-    public long getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

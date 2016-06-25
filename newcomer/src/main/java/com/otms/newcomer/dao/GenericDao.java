@@ -5,20 +5,20 @@ import java.util.List;
 
 public interface GenericDao<T, PK extends Serializable>{
 
-    T load(PK id);
+    public T load(PK id);
 
-    T get(PK id);
+    public T get(PK id);
 
-    List<T> findAll();
+    public List<T> findAll();
 
-    void persist(T entity);
+    public void persist(T entity);
 
-    PK save(T entity);
+    public PK save(T entity);
 
-    void saveOrUpdate(T entity);
+    public void saveOrUpdate(T entity);
 
-    void delete(PK id);
+    public void delete(PK id);
 
-    void flush();
+    public void flush();
 
 }

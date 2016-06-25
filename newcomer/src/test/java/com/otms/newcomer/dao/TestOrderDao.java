@@ -24,11 +24,12 @@ public class TestOrderDao {
     @Test
     public void testLoad() {
         Order orderExp = new Order();
-        orderExp.setId(2000000);
-        orderExp.setOrdNum("Testing");
+        orderExp.setId(20012l);
+        orderExp.setOrdNum("ORD00001");
+        orderExp.setErpNum("ERP00001");
         orderDao.save(orderExp);
         
-        Order orderAct = orderDao.load(2000000);
+        Order orderAct = orderDao.load(2000111l);
         Assert.assertEquals(orderExp.getId(), orderAct.getId());
         Assert.assertEquals(orderExp.getOrdNum(), orderAct.getOrdNum());
     }
