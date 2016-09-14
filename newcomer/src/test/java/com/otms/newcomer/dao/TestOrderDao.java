@@ -17,6 +17,7 @@ import com.alibaba.fastjson.JSON;
 import com.otms.newcomer.dao.OrderDao;
 import com.otms.newcomer.entity.Location;
 import com.otms.newcomer.entity.Order;
+import com.otms.newcomer.entity.Client;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring.xml",
@@ -32,10 +33,13 @@ public class TestOrderDao {
     @Test
     public void testLoad() {
         Order orderExp = new Order();
+        Client client = new Client();
+        client.setClientName("SHANGHAI TRANSPORT");
         Location location = locationDao.get(1l);
         orderExp.setId(20121100l);
         orderExp.setOrdNum("ORD00001");
         orderExp.setErpNum("ERP00001");
+        orderExp.setClient(client);
         orderExp.setShipfrom_loc(location);
         Long testID = orderDao.save(orderExp);
         orderExp = orderDao.get(testID);

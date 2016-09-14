@@ -79,7 +79,7 @@
 			<tx:method name="*" />
 		</tx:attributes>
 	</tx:advice>
-	<!-- Spring aop事务管理 -->
+	<!-- Spring AOP 事务管理 -->
 	<aop:config>
 		<!-- 配置切入点 -->
 		<aop:pointcut id="transactionPointcut"
